@@ -190,14 +190,18 @@ document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{
 });
 
 // ---------- DADOS ----------
+let carregando=null;
 async function carregar(){
-  posts=[];
+  // evita duas cargas ao mesmo tempo (duplicava os posts)
+  if(carregando) return carregando;
+  carregando=(async()=>{
+  const lista=[];
   try{
     const idx = await (await fetch('lotes/index.json',{cache:'no-store'})).json();
     for(const nome of idx.lotes.slice(-21)){
       try{
         const l = await (await fetch('lotes/'+nome,{cache:'no-store'})).json();
-        for(const p of l.posts) posts.push({...p, lote:l.data, tema:l.tema||'', midia:p.midia.map(abs)});
+        for(const p of l.posts) if(!lista.find(x=>x.id===p.id)) lista.push({...p, lote:l.data, tema:l.tema||'', midia:p.midia.map(abs)});
       }catch(_){}
     }
   }catch(_){ aviso('Não consegui ler a lista de posts.'); }
@@ -205,8 +209,11 @@ async function carregar(){
   if(error){ aviso('Erro ao ler as decisões.'); }
   decisoes={}; (data||[]).forEach(d=>decisoes[d.post_id]=d);
   // decisões de posts que saíram dos lotes continuam visíveis
-  (data||[]).forEach(d=>{ if(!posts.find(p=>p.id===d.post_id)) posts.push({id:d.post_id, lote:d.lote, tipo:d.tipo, titulo:d.titulo, legenda:d.legenda, midia:d.midia, horario:d.agendado_para}); });
+  (data||[]).forEach(d=>{ if(!lista.find(p=>p.id===d.post_id)) lista.push({id:d.post_id, lote:d.lote, tipo:d.tipo, titulo:d.titulo, legenda:d.legenda, midia:d.midia, horario:d.agendado_para}); });
+  posts=lista;
   desenhar();
+  })();
+  try{ await carregando; } finally { carregando=null; }
 }
 const statusDe = p => decisoes[p.id]?.status || 'pendente';
 const horaDe = p => decisoes[p.id]?.agendado_para || p.horario;
