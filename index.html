@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mural da Festa — Conteúdo</title>
+<meta name="theme-color" content="#2d1820">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<style>
+  :root{
+    --vinho:#2d1820; --coral:#c94a3a; --coral2:#e0705f; --pessego:#fff1e4; --rosa:#fde3de;
+    --fundo:#fbf7f3; --card:#fff; --texto:#2d1820; --suave:#7a6268; --linha:#efe2dc;
+    --ok:#2f7a4f; --okc:#e1f2e7; --alerta:#b5402d; --alertac:#fbe6e1; --azul:#3f5a9e; --azulc:#e5ebf7;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Figtree,system-ui,sans-serif;background:var(--fundo);color:var(--texto);font-size:15px;line-height:1.45}
+  header{background:var(--vinho);color:#fff;padding:12px 16px;position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:12px}
+  header h1{font-family:'Playfair Display',serif;font-size:21px;margin:0}
+  header small{display:block;color:#f2b8ab;font-size:11px;letter-spacing:1.6px;text-transform:uppercase;font-weight:600}
+  header .quem{margin-left:auto;font-size:12px;text-align:right;color:#e9d6d0}
+  header .quem button{background:none;border:1px solid #6b4a52;color:#e9d6d0;border-radius:6px;padding:3px 8px;font-size:12px;margin-top:3px;cursor:pointer}
+  nav{display:flex;background:#fff;border-bottom:1px solid var(--linha);position:sticky;top:60px;z-index:9;overflow-x:auto}
+  nav button{flex:1;min-width:92px;padding:12px 8px;border:0;background:none;font:600 14px Figtree;color:var(--suave);border-bottom:3px solid transparent;cursor:pointer}
+  nav button.ativo{color:var(--vinho);border-bottom-color:var(--coral)}
+  main{max-width:900px;margin:0 auto;padding:16px}
+  h2{font-family:'Playfair Display',serif;font-size:24px;margin:6px 0 10px}
+  h2 em{color:var(--coral)}
+  .card{background:var(--card);border:1px solid var(--linha);border-radius:14px;padding:16px;margin-bottom:14px}
+  .lote-topo{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:18px 0 10px}
+  .lote-topo h2{margin:0}
+  .lote-topo .meta{flex:1}
+  .post{display:grid;grid-template-columns:150px 1fr;gap:14px}
+  @media (max-width:560px){.post{grid-template-columns:110px 1fr}}
+  .midia{position:relative}
+  .midia video,.midia img{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:10px;background:#000;display:block}
+  .midia.quadrada video,.midia.quadrada img{aspect-ratio:4/5}
+  .midia .mais{position:absolute;right:6px;bottom:6px;background:rgba(0,0,0,.6);color:#fff;font-size:11px;border-radius:10px;padding:2px 7px}
+  .info h3{margin:0 0 4px;font-size:16px}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
+  .tag{font-size:11px;font-weight:700;padding:3px 8px;border-radius:10px;text-transform:uppercase;letter-spacing:.5px;background:var(--pessego);color:#8a4a2c}
+  .tag.reel{background:var(--rosa);color:var(--coral)}
+  .st{font-size:11px;font-weight:700;padding:3px 8px;border-radius:10px;text-transform:uppercase;letter-spacing:.5px}
+  .st-pendente{background:#f1ecea;color:#6b5a5e}.st-aprovado{background:var(--okc);color:var(--ok)}
+  .st-publicando{background:var(--azulc);color:var(--azul)}.st-publicado{background:var(--azulc);color:var(--azul)}
+  .st-recusado{background:#eee;color:#777}.st-erro{background:var(--alertac);color:var(--alerta)}
+  .meta{color:var(--suave);font-size:13px}
+  .legenda{white-space:pre-wrap;background:#fcf8f5;border-left:3px solid var(--coral2);padding:8px 10px;margin-top:8px;border-radius:4px;font-size:13.5px;max-height:120px;overflow:auto}
+  .gemini{font-size:12.5px;color:#5a4a7a;background:#f1eefa;border-radius:8px;padding:6px 9px;margin-top:8px}
+  .erro{font-size:12.5px;color:var(--alerta);background:var(--alertac);border-radius:8px;padding:6px 9px;margin-top:8px}
+  .acoes{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;align-items:center}
+  .btn{display:inline-block;padding:9px 14px;border-radius:9px;border:0;font:600 14px Figtree;cursor:pointer;background:var(--vinho);color:#fff;text-decoration:none}
+  .btn.coral{background:var(--coral)}.btn.verde{background:var(--ok)}
+  .btn.claro{background:#fff;color:var(--vinho);border:1px solid var(--linha)}
+  .btn.pq{padding:6px 10px;font-size:13px}
+  .btn:disabled{opacity:.5;cursor:default}
+  input,select,textarea{width:100%;padding:10px 12px;border:1px solid var(--linha);border-radius:8px;font:inherit;background:#fff}
+  input[type=datetime-local]{width:auto}
+  label{display:block;font-weight:600;font-size:13px;margin:12px 0 4px}
+  .linha{display:flex;gap:10px;flex-wrap:wrap}.linha>*{flex:1;min-width:150px}
+  .vazio{text-align:center;color:var(--suave);padding:34px 10px}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  thead th{position:sticky;top:108px;background:#fff;text-align:left;padding:8px;border-bottom:2px solid var(--linha)}
+  td{padding:8px;border-bottom:1px solid var(--linha);vertical-align:top}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--vinho);color:#fff;padding:10px 18px;border-radius:24px;font-size:14px;z-index:50;display:none;max-width:90%}
+  .login{max-width:420px;margin:50px auto}
+  .passos li{margin-bottom:6px}
+  .conexao{display:flex;align-items:center;gap:10px;font-weight:600}
+  .bola{width:12px;height:12px;border-radius:50%;background:#ccc;flex:none}.bola.on{background:var(--ok)}.bola.off{background:var(--alerta)}
+  .oculto{display:none!important}
+</style>
+</head>
+<body>
+
+<header>
+  <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect x="3" y="7" width="28" height="18" rx="3" fill="none" stroke="#f2b8ab" stroke-width="2"/><path d="M12 30h10" stroke="#f2b8ab" stroke-width="2" stroke-linecap="round"/><path d="M11 13h12a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-7l-3 2v-2h-2a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2z" fill="#f2b8ab"/></svg>
+  <div><small>Conteúdo do Instagram</small><h1>Mural da Festa</h1></div>
+  <div class="quem oculto" id="quem"><span id="quemNome"></span><br><button onclick="sair()">Sair</button></div>
+</header>
+
+<section id="telaLogin" class="login oculto">
+  <h2>Entrar</h2>
+  <div class="card">
+    <p style="margin-top:0">Digite seu email. Mandamos um link de acesso para a sua caixa de entrada.</p>
+    <label for="loginEmail">Seu email</label>
+    <input id="loginEmail" type="email" placeholder="nome@gmail.com" autocomplete="email">
+    <div class="acoes"><button class="btn coral" id="btnLogin" onclick="entrar()">Enviar link de acesso</button></div>
+    <p class="meta" id="loginMsg"></p>
+  </div>
+</section>
+
+<section id="telaSemAcesso" class="login oculto">
+  <h2>Acesso não liberado</h2>
+  <div class="card"><p>O email <b id="semAcessoEmail"></b> ainda não está na lista. Peça a um administrador para incluir você.</p>
+  <button class="btn claro" onclick="sair()">Sair</button></div>
+</section>
+
+<div id="app" class="oculto">
+  <nav>
+    <button data-aba="fila" class="ativo">Para aprovar</button>
+    <button data-aba="agenda">Agenda</button>
+    <button data-aba="publicados">Publicados</button>
+    <button data-aba="instagram" class="soAdmin">Instagram</button>
+    <button data-aba="membros" class="soAdmin">Membros</button>
+  </nav>
+  <main>
+    <section id="aba-fila"><div id="listaFila"></div></section>
+    <section id="aba-agenda" class="oculto"><div id="listaAgenda"></div></section>
+    <section id="aba-publicados" class="oculto"><div id="listaPublicados"></div></section>
+
+    <section id="aba-instagram" class="oculto">
+      <h2>Conexão com o <em>Instagram</em></h2>
+      <div class="card">
+        <div class="conexao"><span class="bola" id="igBola"></span><span id="igTexto">Verificando...</span></div>
+        <p class="meta" id="igDetalhe"></p>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">Conectar ou trocar o token</h3>
+        <ol class="passos meta">
+          <li>Em <b>developers.facebook.com</b>, abra o app do Mural, produto <b>Instagram</b>, <b>Configuração da API com login do Instagram</b>.</li>
+          <li>Em <b>Gerar tokens de acesso</b>, clique em <b>Gerar token</b> ao lado de @muraldafesta e copie.</li>
+          <li>Cole abaixo e clique em <b>Conectar</b>. O app renova o token sozinho toda semana.</li>
+        </ol>
+        <label for="igToken">Token de acesso</label>
+        <input id="igToken" type="password" autocomplete="off" placeholder="Cole aqui o token">
+        <div class="acoes"><button class="btn coral" onclick="conectarIG()">Conectar</button></div>
+      </div>
+    </section>
+
+    <section id="aba-membros" class="oculto">
+      <h2>Quem usa o app</h2>
+      <div class="card"><table><thead><tr><th>Nome</th><th>Email</th><th>Papel</th><th></th></tr></thead><tbody id="listaMembros"></tbody></table></div>
+      <div class="card">
+        <h3 style="margin-top:0">Incluir pessoa</h3>
+        <div class="linha">
+          <div><label for="mNome">Nome</label><input id="mNome"></div>
+          <div><label for="mEmail">Email</label><input id="mEmail" type="email"></div>
+          <div><label for="mPapel">Papel</label><select id="mPapel"><option value="colaborador">Colaborador (aprova posts)</option><option value="admin">Administrador</option></select></div>
+        </div>
+        <div class="acoes"><button class="btn" onclick="incluirMembro()">Incluir</button></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ---- CONFIG (preenchido na instalação) ----
+const SUPABASE_URL = 'https://xjuuldfuutdydmuzigky.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_CA0CtlebDqQyyH5v8np2pA_j9Hlvx-q';
+// --------------------------------------------
+const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const $ = id => document.getElementById(id);
+const esc = s => (s ?? '').toString().replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const TIPO = {reel:'Reels', story:'Story', foto:'Foto', carrossel:'Carrossel'};
+const STATUS = {pendente:'Aguardando', aprovado:'Aprovado', publicando:'Publicando', publicado:'Publicado', recusado:'Recusado', erro:'Erro'};
+let eu = null, posts = [], decisoes = {}, aba = 'fila';
+
+function aviso(m){ const t=$('toast'); t.textContent=m; t.style.display='block'; clearTimeout(t._h); t._h=setTimeout(()=>t.style.display='none',3500); }
+function mostrar(id){ ['telaLogin','telaSemAcesso','app'].forEach(x=>$(x).classList.toggle('oculto', x!==id)); }
+function quando(d){ const x=new Date(d); return x.toLocaleDateString('pt-BR',{weekday:'short',day:'2-digit',month:'2-digit'})+' às '+x.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'}); }
+function diaTitulo(iso){ const x=new Date(iso+'T12:00:00'); return x.toLocaleDateString('pt-BR',{weekday:'long',day:'2-digit',month:'2-digit'}); }
+function paraInput(d){ const x=new Date(d); x.setMinutes(x.getMinutes()-x.getTimezoneOffset()); return x.toISOString().slice(0,16); }
+const abs = u => new URL(u, location.href).href;
+
+// ---------- LOGIN ----------
+async function entrar(){
+  const email=$('loginEmail').value.trim().toLowerCase(); if(!email){ aviso('Digite seu email.'); return; }
+  $('btnLogin').disabled=true;
+  const { error } = await sb.auth.signInWithOtp({ email, options:{ emailRedirectTo: location.origin+location.pathname } });
+  $('btnLogin').disabled=false;
+  $('loginMsg').textContent = error ? 'Não foi possível enviar: '+error.message : 'Pronto. Abra seu email e toque no link para entrar.';
+}
+async function sair(){ await sb.auth.signOut(); eu=null; $('quem').classList.add('oculto'); mostrar('telaLogin'); }
+async function iniciar(session){
+  if(!session){ mostrar('telaLogin'); return; }
+  const email=session.user.email.toLowerCase();
+  const { data } = await sb.from('membros').select('*').eq('email',email).maybeSingle();
+  if(!data){ $('semAcessoEmail').textContent=email; mostrar('telaSemAcesso'); return; }
+  eu=data; $('quemNome').textContent=eu.nome; $('quem').classList.remove('oculto');
+  document.querySelectorAll('.soAdmin').forEach(b=>b.classList.toggle('oculto', eu.papel!=='admin'));
+  mostrar('app'); await carregar();
+}
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{
+  aba=b.dataset.aba; document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('ativo',x===b));
+  ['fila','agenda','publicados','instagram','membros'].forEach(a=>$('aba-'+a).classList.toggle('oculto',a!==aba));
+  if(aba==='instagram') carregarIG(); else if(aba==='membros') carregarMembros(); else desenhar();
+});
+
+// ---------- DADOS ----------
+async function carregar(){
+  posts=[];
+  try{
+    const idx = await (await fetch('lotes/index.json',{cache:'no-store'})).json();
+    for(const nome of idx.lotes.slice(-21)){
+      try{
+        const l = await (await fetch('lotes/'+nome,{cache:'no-store'})).json();
+        for(const p of l.posts) posts.push({...p, lote:l.data, tema:l.tema||'', midia:p.midia.map(abs)});
+      }catch(_){}
+    }
+  }catch(_){ aviso('Não consegui ler a lista de posts.'); }
+  const { data, error } = await sb.from('decisoes').select('*');
+  if(error){ aviso('Erro ao ler as decisões.'); }
+  decisoes={}; (data||[]).forEach(d=>decisoes[d.post_id]=d);
+  // decisões de posts que saíram dos lotes continuam visíveis
+  (data||[]).forEach(d=>{ if(!posts.find(p=>p.id===d.post_id)) posts.push({id:d.post_id, lote:d.lote, tipo:d.tipo, titulo:d.titulo, legenda:d.legenda, midia:d.midia, horario:d.agendado_para}); });
+  desenhar();
+}
+const statusDe = p => decisoes[p.id]?.status || 'pendente';
+const horaDe = p => decisoes[p.id]?.agendado_para || p.horario;
+
+// ---------- DESENHO ----------
+function cartao(p){
+  const d=decisoes[p.id], st=statusDe(p), pend=st==='pendente';
+  const m=p.midia||[], video=/\.(mp4|mov)(\?|$)/i.test(m[0]||'');
+  const quad = p.tipo==='foto'||p.tipo==='carrossel';
+  const midia = video ? `<video src="${esc(m[0])}" controls playsinline preload="metadata"></video>` : `<img src="${esc(m[0]||'')}" alt="">`;
+  const passou = new Date(horaDe(p)) < new Date();
+  let botoes='';
+  if(pend){
+    botoes = `<button class="btn verde" onclick="decidir('${p.id}','aprovado')">Aprovar</button>
+      <button class="btn claro" onclick="decidir('${p.id}','recusado')">Recusar</button>
+      <label class="meta" style="margin:0;font-weight:500">Horário <input type="datetime-local" id="h_${p.id}" value="${paraInput(horaDe(p))}"></label>`;
+  } else if(st==='aprovado'||st==='erro'){
+    botoes = `<button class="btn coral pq" onclick="agora('${p.id}')">Publicar agora</button>
+      <button class="btn claro pq" onclick="desfazer('${p.id}')">Voltar para aprovação</button>`;
+  } else if(st==='recusado'){
+    botoes = `<button class="btn claro pq" onclick="desfazer('${p.id}')">Desfazer</button>`;
+  } else if(st==='publicado' && d.ig_link){
+    botoes = `<a class="btn claro pq" href="${esc(d.ig_link)}" target="_blank" rel="noopener">Ver no Instagram</a>`;
+  }
+  return `<div class="card post" id="c_${p.id}">
+    <div class="midia ${quad?'quadrada':''}">${midia}${m.length>1?`<span class="mais">+${m.length-1}</span>`:''}</div>
+    <div class="info">
+      <div class="tags"><span class="tag ${p.tipo}">${TIPO[p.tipo]||p.tipo}</span><span class="st st-${st}">${STATUS[st]}</span></div>
+      <h3>${esc(p.titulo||'')}</h3>
+      <div class="meta">${st==='publicado'?'Publicado '+quando(d.publicado_em):(pend&&passou?'Horário previsto já passou: ajuste antes de aprovar':'Sai '+quando(horaDe(p)))}${d?.decidido_por&&st!=='publicado'?' · por '+esc(d.decidido_por):''}</div>
+      ${p.tipo!=='story'&&p.legenda?`<div class="legenda">${esc(p.legenda)}</div>`:''}
+      ${p.nota_gemini?`<div class="gemini">Gemini: ${esc(p.nota_gemini)}</div>`:''}
+      ${d?.erro?`<div class="erro">${esc(d.erro)}</div>`:''}
+      <div class="acoes">${botoes}</div>
+    </div></div>`;
+}
+function porLote(lista, titulo, vazio, comBotaoDia){
+  if(!lista.length) return `<h2>${titulo}</h2><div class="vazio">${vazio}</div>`;
+  const g={}; lista.forEach(p=>(g[p.lote]=g[p.lote]||[]).push(p));
+  return Object.keys(g).sort().map(l=>{
+    const ps=g[l].sort((a,b)=>new Date(horaDe(a))-new Date(horaDe(b)));
+    const tema = ps.find(p=>p.tema)?.tema;
+    return `<div class="lote-topo"><h2>${diaTitulo(l)}</h2><span class="meta">${tema?esc(tema)+' · ':''}${ps.length} ${ps.length>1?'peças':'peça'}</span>
+      ${comBotaoDia&&ps.length>1?`<button class="btn verde" onclick="aprovarDia('${l}')">Aprovar o dia todo</button>`:''}</div>`+ps.map(cartao).join('');
+  }).join('');
+}
+function desenhar(){
+  const pend = posts.filter(p=>statusDe(p)==='pendente');
+  const agenda = posts.filter(p=>['aprovado','publicando','erro'].includes(statusDe(p)));
+  const pub = posts.filter(p=>statusDe(p)==='publicado').sort((a,b)=>new Date(decisoes[b.id].publicado_em)-new Date(decisoes[a.id].publicado_em));
+  const rec = posts.filter(p=>statusDe(p)==='recusado');
+  $('listaFila').innerHTML = porLote(pend,'Para <em>aprovar</em>','Nada esperando aprovação. O próximo lote chega às 7h30.',true);
+  $('listaAgenda').innerHTML = porLote(agenda,'Programados','Nenhum post aprovado esperando a hora.',false)
+    + (rec.length?`<h2 style="margin-top:28px">Recusados</h2>`+rec.map(cartao).join(''):'');
+  $('listaPublicados').innerHTML = pub.length ? `<h2>Publicados</h2>`+pub.slice(0,60).map(cartao).join('') : `<h2>Publicados</h2><div class="vazio">Nada publicado pelo app ainda.</div>`;
+}
+
+// ---------- AÇÕES ----------
+async function decidir(id, status, semRedesenho){
+  const p=posts.find(x=>x.id===id); const h=$('h_'+id);
+  const quando = h&&h.value ? new Date(h.value).toISOString() : new Date(p.horario).toISOString();
+  if(status==='aprovado' && new Date(quando) < new Date(Date.now()-60000) && !semRedesenho){
+    if(!confirm('O horário deste post já passou. Aprovar e publicar agora?')) return;
+  }
+  const reg={ post_id:id, lote:p.lote, tipo:p.tipo, titulo:p.titulo, legenda:p.legenda||'', midia:p.midia, agendado_para:quando, status, decidido_por:eu.nome, decidido_em:new Date().toISOString(), erro:null };
+  const { error } = await sb.from('decisoes').upsert(reg);
+  if(error){ aviso('Não foi possível salvar: '+error.message); return false; }
+  decisoes[id]={...(decisoes[id]||{}), ...reg};
+  if(!semRedesenho){ desenhar(); aviso(status==='aprovado'?'Aprovado. Sai '+quandoTxt(quando)+'.':'Recusado.'); }
+  return true;
+}
+const quandoTxt = q => new Date(q) < new Date() ? 'em até 5 minutos' : quando(q);
+async function aprovarDia(lote){
+  const ps=posts.filter(p=>p.lote===lote && statusDe(p)==='pendente');
+  let ok=0; for(const p of ps){ if(await decidir(p.id,'aprovado',true)) ok++; }
+  desenhar(); aviso(`${ok} de ${ps.length} aprovados. Saem nos horários marcados.`);
+}
+async function desfazer(id){
+  const { error } = await sb.from('decisoes').delete().eq('post_id',id);
+  if(error){ aviso('Não deu para desfazer: '+error.message); return; }
+  delete decisoes[id]; desenhar(); aviso('Voltou para aprovação.');
+}
+async function agora(id){
+  aviso('Enviando ao Instagram... vídeos levam até 1 minuto.');
+  const { data, error } = await sb.functions.invoke('publicar',{ body:{ acao:'agora', post_id:id } });
+  if(error||data?.erro){ aviso('Erro: '+(data?.erro||error.message)); }
+  await carregar();
+  const d=decisoes[id]; if(d?.status==='publicado') aviso('Publicado no Instagram.'); else if(d?.status==='publicando') aviso('O Instagram ainda está processando. Termina em alguns minutos.');
+}
+
+// ---------- INSTAGRAM ----------
+async function carregarIG(){
+  const { data } = await sb.rpc('situacao_instagram');
+  const on = data?.conectado;
+  $('igBola').className='bola '+(on?'on':'off');
+  $('igTexto').textContent = on ? 'Conectado a @'+(data.usuario||'') : 'Instagram não conectado';
+  $('igDetalhe').textContent = on ? 'Token renovado em '+new Date(data.renovado_em).toLocaleDateString('pt-BR')+'. Ele se renova sozinho.' : 'Sem a conexão, os posts aprovados ficam esperando.';
+}
+async function conectarIG(){
+  const token=$('igToken').value.trim(); if(!token){ aviso('Cole o token.'); return; }
+  const { data, error } = await sb.functions.invoke('publicar',{ body:{ acao:'conectar', token } });
+  $('igToken').value='';
+  if(error||data?.erro){ aviso(data?.erro||error.message); return; }
+  aviso('Conectado a @'+data.usuario+'.'); carregarIG();
+}
+
+// ---------- MEMBROS ----------
+async function carregarMembros(){
+  const { data } = await sb.from('membros').select('*').order('nome');
+  $('listaMembros').innerHTML=(data||[]).map(m=>`<tr><td>${esc(m.nome)}</td><td>${esc(m.email)}</td><td>${m.papel==='admin'?'Administrador':'Colaborador'}</td>
+    <td>${m.email!==eu.email?`<button class="btn claro pq" onclick="tirarMembro('${esc(m.email)}')">Tirar</button>`:''}</td></tr>`).join('');
+}
+async function incluirMembro(){
+  const nome=$('mNome').value.trim(), email=$('mEmail').value.trim().toLowerCase();
+  if(!nome||!email){ aviso('Preencha nome e email.'); return; }
+  const { error } = await sb.from('membros').insert({ nome, email, papel:$('mPapel').value });
+  if(error){ aviso('Não foi possível incluir: '+error.message); return; }
+  $('mNome').value=''; $('mEmail').value=''; aviso('Incluído. A pessoa já pode entrar com esse email.'); carregarMembros();
+}
+async function tirarMembro(email){
+  if(!confirm('Tirar '+email+' do app?')) return;
+  await sb.from('membros').delete().eq('email',email); carregarMembros();
+}
+
+sb.auth.onAuthStateChange((_e,s)=>{ if(_e==='SIGNED_IN'&&!eu) iniciar(s); if(_e==='SIGNED_OUT') mostrar('telaLogin'); });
+sb.auth.getSession().then(({data})=>iniciar(data.session));
+setInterval(()=>{ if(eu && document.visibilityState==='visible' && (aba==='agenda'||aba==='publicados')) carregar(); }, 60000);
+</script>
+</body>
+</html>
