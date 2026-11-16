@@ -69,6 +69,11 @@
   .conexao{display:flex;align-items:center;gap:10px;font-weight:600}
   .bola{width:12px;height:12px;border-radius:50%;background:#ccc;flex:none}.bola.on{background:var(--ok)}.bola.off{background:var(--alerta)}
   .oculto{display:none!important}
+  .galeria{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;border-radius:10px;scrollbar-width:none}
+  .galeria::-webkit-scrollbar{display:none}
+  .galeria img{flex:0 0 100%;scroll-snap-align:start;border-radius:0!important}
+  .midia .seta{position:absolute;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;border:0;background:rgba(255,255,255,.85);color:#2d1820;font-size:18px;line-height:30px;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.25)}
+  .midia .seta.esq{left:6px}.midia .seta.dir{right:6px}
 </style>
 </head>
 <body>
@@ -219,11 +224,18 @@ const statusDe = p => decisoes[p.id]?.status || 'pendente';
 const horaDe = p => decisoes[p.id]?.agendado_para || p.horario;
 
 // ---------- DESENHO ----------
+function passaSlide(id,dir){ const g=document.getElementById('g_'+id); if(g) g.scrollBy({left:dir*g.clientWidth,behavior:'smooth'}); }
+function contaSlide(g){ const i=Math.round(g.scrollLeft/g.clientWidth)+1, n=g.children.length, el=document.getElementById('n_'+g.id.slice(2)); if(el) el.textContent=i+'/'+n; }
 function cartao(p){
   const d=decisoes[p.id], st=statusDe(p), pend=st==='pendente';
   const m=p.midia||[], video=/\.(mp4|mov)(\?|$)/i.test(m[0]||'');
   const quad = p.tipo==='foto'||p.tipo==='carrossel';
-  const midia = video ? `<video src="${esc(m[0])}" controls playsinline preload="metadata"></video>` : `<img src="${esc(m[0]||'')}" alt="">`;
+  const gal = !video && m.length>1;
+  const midia = video ? `<video src="${esc(m[0])}" controls playsinline preload="metadata"></video>`
+    : gal ? `<div class="galeria" id="g_${p.id}" onscroll="contaSlide(this)">${m.map(u=>`<img src="${esc(u)}" alt="" loading="lazy">`).join('')}</div>
+        <button class="seta esq" onclick="passaSlide('${p.id}',-1)" aria-label="Anterior">&#8249;</button>
+        <button class="seta dir" onclick="passaSlide('${p.id}',1)" aria-label="Próximo">&#8250;</button>`
+    : `<img src="${esc(m[0]||'')}" alt="">`;
   const passou = new Date(horaDe(p)) < new Date();
   let botoes='';
   if(pend){
@@ -239,7 +251,7 @@ function cartao(p){
     botoes = `<a class="btn claro pq" href="${esc(d.ig_link)}" target="_blank" rel="noopener">Ver no Instagram</a>`;
   }
   return `<div class="card post" id="c_${p.id}">
-    <div class="midia ${quad?'quadrada':''}">${midia}${m.length>1?`<span class="mais">+${m.length-1}</span>`:''}</div>
+    <div class="midia ${quad?'quadrada':''}">${midia}${gal?`<span class="mais" id="n_${p.id}">1/${m.length}</span>`:(m.length>1?`<span class="mais">+${m.length-1}</span>`:'')}</div>
     <div class="info">
       <div class="tags"><span class="tag ${p.tipo}">${TIPO[p.tipo]||p.tipo}</span><span class="st st-${st}">${STATUS[st]}</span></div>
       <h3>${esc(p.titulo||'')}</h3>
