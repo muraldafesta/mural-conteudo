@@ -1,0 +1,36 @@
+{
+ "data": "2026-11-17",
+ "tema": "A vó que não pôde vir (emoção)",
+ "posts": [
+  {
+   "id": "2026-11-17-story-1200",
+   "tipo": "story",
+   "titulo": "Story: Imagine sua filha procurando a vovó na festa",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-17/story-1200.mp4"
+   ],
+   "horario": "2026-11-17T12:00:00-03:00"
+  },
+  {
+   "id": "2026-11-17-reels",
+   "tipo": "reel",
+   "titulo": "Reels: A vó que não pôde vir",
+   "legenda": "Tem gente que não consegue estar presente, mas merece fazer parte de cada momento.\n\nCom o Mural da Festa, quem está longe manda foto e recado pelo celular, e aparece no telão na hora do parabéns.\n\nPorque algumas presenças chegam de outro jeito.\n\nQuer no aniversário do seu filho? Mande FESTA no direct.\n\nCenas ilustrativas criadas com IA.\n#festainfantil #aniversarioinfantil #vovó #festadecrianca #muraldafesta",
+   "midia": [
+    "midia/2026-11-17/reels-vo.mp4"
+   ],
+   "horario": "2026-11-17T18:30:00-03:00"
+  },
+  {
+   "id": "2026-11-17-story-2030",
+   "tipo": "story",
+   "titulo": "Story: Tem presença que chega de longe",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-17/story-2030.mp4"
+   ],
+   "horario": "2026-11-17T20:30:00-03:00"
+  }
+ ]
+}
