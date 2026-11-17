@@ -94,20 +94,21 @@
 <header>
   <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect x="3" y="7" width="28" height="18" rx="3" fill="none" stroke="#f2b8ab" stroke-width="2"/><path d="M12 30h10" stroke="#f2b8ab" stroke-width="2" stroke-linecap="round"/><path d="M11 13h12a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-7l-3 2v-2h-2a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2z" fill="#f2b8ab"/></svg>
   <div><small>Conteúdo do Instagram</small><h1>Mural da Festa</h1></div>
-  <div class="quem oculto" id="quem"><span id="quemNome"></span><br><button onclick="sair()">Sair</button></div>
+  <div class="quem oculto" id="quem"><span id="quemNome"></span><br><button onclick="criarSenha()">Senha</button> <button onclick="sair()">Sair</button></div>
 </header>
 
 <section id="telaLogin" class="login oculto">
   <h2>Entrar</h2>
   <div class="card">
-    <p style="margin-top:0">Digite seu email. Mandamos um link de acesso para a sua caixa de entrada.</p>
     <label for="loginEmail">Seu email</label>
-    <input id="loginEmail" type="email" placeholder="nome@gmail.com" autocomplete="email">
-    <div class="acoes"><button class="btn coral" id="btnLogin" onclick="entrar()">Enviar link de acesso</button></div>
+    <input id="loginEmail" type="email" placeholder="nome@gmail.com" autocomplete="username">
+    <label for="loginSenha">Senha</label>
+    <input id="loginSenha" type="password" autocomplete="current-password" placeholder="sua senha do app" onkeydown="if(event.key==='Enter')entrarSenha()">
+    <div class="acoes"><button class="btn coral" id="btnSenha" onclick="entrarSenha()">Entrar</button></div>
+    <p class="meta" style="margin-top:14px">Ainda não tem senha ou esqueceu? <a href="#" onclick="entrar();return false">Receber link de acesso no email</a> (abra o link neste mesmo navegador; depois crie sua senha no botão "Senha", lá em cima).</p>
     <p class="meta" id="loginMsg"></p>
   </div>
 </section>
-
 <section id="telaSemAcesso" class="login oculto">
   <h2>Acesso não liberado</h2>
   <div class="card"><p>O email <b id="semAcessoEmail"></b> ainda não está na lista. Peça a um administrador para incluir você.</p>
@@ -169,7 +170,7 @@
 const SUPABASE_URL = 'https://xjuuldfuutdydmuzigky.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_CA0CtlebDqQyyH5v8np2pA_j9Hlvx-q';
 // --------------------------------------------
-const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, { auth:{ persistSession:true, autoRefreshToken:true, detectSessionInUrl:true } });
 const $ = id => document.getElementById(id);
 const esc = s => (s ?? '').toString().replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const TIPO = {reel:'Reels', story:'Story', foto:'Foto', carrossel:'Carrossel'};
@@ -186,11 +187,28 @@ const abs = u => new URL(u, location.href).href;
 // ---------- LOGIN ----------
 async function entrar(){
   const email=$('loginEmail').value.trim().toLowerCase(); if(!email){ aviso('Digite seu email.'); return; }
-  $('btnLogin').disabled=true;
+  try{ localStorage.setItem('muralEmail',email); }catch(_){}
   const { error } = await sb.auth.signInWithOtp({ email, options:{ emailRedirectTo: location.origin+location.pathname } });
-  $('btnLogin').disabled=false;
-  $('loginMsg').textContent = error ? 'Não foi possível enviar: '+error.message : 'Pronto. Abra seu email e toque no link para entrar.';
+  $('loginMsg').textContent = error ? 'Não foi possível enviar: '+error.message : 'Pronto. Abra o email e toque no link. Se o celular abrir dentro do Gmail, use "Abrir no Chrome".';
 }
+async function entrarSenha(){
+  const email=$('loginEmail').value.trim().toLowerCase(), password=$('loginSenha').value;
+  if(!email||!password){ aviso('Digite email e senha.'); return; }
+  try{ localStorage.setItem('muralEmail',email); }catch(_){}
+  $('btnSenha').disabled=true;
+  const { data, error } = await sb.auth.signInWithPassword({ email, password });
+  $('btnSenha').disabled=false;
+  if(error){ $('loginMsg').textContent = /invalid/i.test(error.message) ? 'Email ou senha não conferem. Se ainda não criou senha, use o link de acesso abaixo.' : 'Erro: '+error.message; return; }
+  iniciar(data.session);
+}
+async function criarSenha(){
+  const a=prompt('Nova senha do app (mínimo 8 caracteres):'); if(!a) return;
+  if(a.length<8){ aviso('A senha precisa de pelo menos 8 caracteres.'); return; }
+  const b=prompt('Digite a senha de novo para confirmar:'); if(a!==b){ aviso('As senhas não conferem.'); return; }
+  const { error } = await sb.auth.updateUser({ password:a });
+  aviso(error ? 'Não consegui salvar: '+error.message : 'Senha criada. Da próxima vez entre com email e senha.');
+}
+try{ const e=localStorage.getItem('muralEmail'); if(e) setTimeout(()=>{ if(!$('loginEmail').value) $('loginEmail').value=e; },0);}catch(_){}
 async function sair(){ await sb.auth.signOut(); eu=null; $('quem').classList.add('oculto'); mostrar('telaLogin'); }
 async function iniciar(session){
   if(!session){ mostrar('telaLogin'); return; }
