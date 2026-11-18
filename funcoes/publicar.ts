@@ -132,6 +132,31 @@ async function publicarUm(c: { ig_user_id: string; token: string }, p0: any) {
   }
 }
 
+
+// Aprovação automática (pedido do Luciano em 18/11/2026): post que está nos lotes e
+// ninguém decidiu é aprovado sozinho 30 min antes do horário. Recusar no app antes disso impede.
+const SITE = "https://muraldafesta.github.io/mural-conteudo/";
+async function autoAprovar() {
+  try {
+    const idx = await (await fetch(SITE + "lotes/index.json", { cache: "no-store" })).json();
+    const agora = Date.now();
+    for (const nome of (idx.lotes || []).slice(-10)) {
+      const l = await (await fetch(SITE + "lotes/" + nome, { cache: "no-store" })).json();
+      for (const p of l.posts || []) {
+        const t = Date.parse(p.horario);
+        if (!(t - agora <= 30 * 60000 && t > agora - 6 * 3600000)) continue;
+        const { data: ja } = await db.from("decisoes").select("post_id").eq("post_id", p.id).maybeSingle();
+        if (ja) continue;
+        await db.from("decisoes").insert({
+          post_id: p.id, lote: l.data, tipo: p.tipo, titulo: p.titulo || null, legenda: p.legenda || "",
+          midia: (p.midia || []).map((u: string) => new URL(u, SITE).href),
+          agendado_para: new Date(t).toISOString(), status: "aprovado", decidido_por: "automatico",
+        });
+      }
+    }
+  } catch (_) { /* segue sem travar a publicação */ }
+}
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: CORS });
   let corpo: any = {};
@@ -165,6 +190,7 @@ Deno.serve(async (req) => {
     }
   }
 
+  if (!corpo.acao) await autoAprovar();
   let filtro = db.from("decisoes").select("*");
   if (corpo.acao === "agora") {
     const m = await quem(req);
