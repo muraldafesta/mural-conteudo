@@ -31,6 +31,16 @@
     "midia/2026-11-18/story-2030.mp4"
    ],
    "horario": "2026-11-18T20:30:00-03:00"
+  },
+  {
+   "id": "2026-11-18-logo",
+   "tipo": "story",
+   "titulo": "Story: logo do Mural",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-18/logo-story.jpg"
+   ],
+   "horario": "2026-11-18T21:48:00-03:00"
   }
  ]
 }
