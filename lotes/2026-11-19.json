@@ -1,6 +1,6 @@
 {
  "data": "2026-11-19",
- "tema": "Checklist da festa infantil (carrossel da semana)",
+ "tema": "Carrossel Checklist + A mãe que não parou (vídeo Vids)",
  "posts": [
   {
    "id": "2026-11-19-carrossel-checklist",
@@ -16,6 +16,56 @@
     "midia/2026-11-19/checklist-6.jpg"
    ],
    "horario": "2026-11-19T12:00:00-03:00"
+  },
+  {
+   "id": "2026-11-19-story-1800",
+   "tipo": "story",
+   "titulo": "Story 1/4: A festa era amanhã",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-19/story-1800.mp4"
+   ],
+   "horario": "2026-11-19T18:00:00-03:00"
+  },
+  {
+   "id": "2026-11-19-story-1805",
+   "tipo": "story",
+   "titulo": "Story 2/4: O grande dia chegou",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-19/story-1805.mp4"
+   ],
+   "horario": "2026-11-19T18:05:00-03:00"
+  },
+  {
+   "id": "2026-11-19-story-1810",
+   "tipo": "story",
+   "titulo": "Story 3/4: Até que o telão mostrou...",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-19/story-1810.mp4"
+   ],
+   "horario": "2026-11-19T18:10:00-03:00"
+  },
+  {
+   "id": "2026-11-19-story-1815",
+   "tipo": "story",
+   "titulo": "Story 4/4: O final sai às 18:30",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-19/story-1815.mp4"
+   ],
+   "horario": "2026-11-19T18:15:00-03:00"
+  },
+  {
+   "id": "2026-11-19-reels",
+   "tipo": "reel",
+   "titulo": "Reels: A mãe que não parou",
+   "legenda": "Ela queria que tudo fosse perfeito. Preparou cada detalhe, correu o dia inteiro e quase esqueceu de viver aquele momento. Mas, no meio da festa, descobriu que a emoção estava nos recados de quem ama o filho dela.\n\nNo Mural da Festa, cada convidado faz parte da memória.\n\nMande FESTA no direct.\n\nCenas ilustrativas criadas com IA.\n#festainfantil #maedemenino #aniversarioinfantil #festadecrianca #muraldafesta",
+   "midia": [
+    "midia/2026-11-19/reels.mp4"
+   ],
+   "horario": "2026-11-19T18:30:00-03:00"
   }
  ]
 }
