@@ -1,0 +1,56 @@
+{
+ "data": "2026-11-23",
+ "tema": "Só aparece o que a mãe aprovar: o recado da Vó Nena (plano B)",
+ "posts": [
+  {
+   "id": "2026-11-23-story-1800",
+   "tipo": "story",
+   "titulo": "Story 1/4: O celular da mãe",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-23/story-1800.mp4"
+   ],
+   "horario": "2026-11-23T18:00:00-03:00"
+  },
+  {
+   "id": "2026-11-23-story-1805",
+   "tipo": "story",
+   "titulo": "Story 2/4: Só o que ela aprovar",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-23/story-1805.mp4"
+   ],
+   "horario": "2026-11-23T18:05:00-03:00"
+  },
+  {
+   "id": "2026-11-23-story-1810",
+   "tipo": "story",
+   "titulo": "Story 3/4: Um recado inesperado",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-23/story-1810.mp4"
+   ],
+   "horario": "2026-11-23T18:10:00-03:00"
+  },
+  {
+   "id": "2026-11-23-story-1815",
+   "tipo": "story",
+   "titulo": "Story 4/4: O final às 18:30",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-23/story-1815.mp4"
+   ],
+   "horario": "2026-11-23T18:15:00-03:00"
+  },
+  {
+   "id": "2026-11-23-reels",
+   "tipo": "reel",
+   "titulo": "Reels: Só aparece o que a mãe aprovar",
+   "legenda": "Na festa do Davi, cada foto e recado passava primeiro pelo celular da mãe. Na TV, só aparecia o que ela aprovasse. Até que chegou um recado de muito longe: a Vó Nena, lá de Manaus. Ela aprovou com os olhos cheios d'água, e a sala inteira se emocionou junto.\n\nNo Mural da Festa, a família decide o que aparece na TV. Tudo com carinho, nada fora do lugar.\n\nMande FESTA no direct.\n\nCenas ilustrativas criadas com IA.\n#festainfantil #aniversarioinfantil #festasafari #familia #muraldafesta",
+   "midia": [
+    "midia/2026-11-23/reels.mp4"
+   ],
+   "horario": "2026-11-23T18:30:00-03:00"
+  }
+ ]
+}
