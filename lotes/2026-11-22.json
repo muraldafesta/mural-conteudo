@@ -1,0 +1,56 @@
+{
+ "data": "2026-11-22",
+ "tema": "Festa no salão do condomínio: o recado do pai na TV (plano B)",
+ "posts": [
+  {
+   "id": "2026-11-22-story-1800",
+   "tipo": "story",
+   "titulo": "Story 1/4: De olho na porta",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-22/story-1800.mp4"
+   ],
+   "horario": "2026-11-22T18:00:00-03:00"
+  },
+  {
+   "id": "2026-11-22-story-1805",
+   "tipo": "story",
+   "titulo": "Story 2/4: O pai de plantão",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-22/story-1805.mp4"
+   ],
+   "horario": "2026-11-22T18:05:00-03:00"
+  },
+  {
+   "id": "2026-11-22-story-1810",
+   "tipo": "story",
+   "titulo": "Story 3/4: O recado na TV",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-22/story-1810.mp4"
+   ],
+   "horario": "2026-11-22T18:10:00-03:00"
+  },
+  {
+   "id": "2026-11-22-story-1815",
+   "tipo": "story",
+   "titulo": "Story 4/4: O final às 18:30",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-22/story-1815.mp4"
+   ],
+   "horario": "2026-11-22T18:15:00-03:00"
+  },
+  {
+   "id": "2026-11-22-reels",
+   "tipo": "reel",
+   "titulo": "Reels: Tô chegando, filha",
+   "legenda": "A Lara passou a festa olhando para a porta. O pai estava de plantão e ela não sabia se ele ia conseguir chegar. Até que a TV do salão do prédio mostrou um vídeo dele: \"Tô chegando, filha.\" E ele chegou a tempo.\n\nNo Mural da Festa, quem não pode estar perto manda foto, vídeo e recado pelo celular, e tudo aparece na TV do salão, na hora.\n\nMande FESTA no direct.\n\nCenas ilustrativas criadas com IA.\n#festainfantil #festanosalao #aniversarioinfantil #condominio #muraldafesta",
+   "midia": [
+    "midia/2026-11-22/reels.mp4"
+   ],
+   "horario": "2026-11-22T18:30:00-03:00"
+  }
+ ]
+}
