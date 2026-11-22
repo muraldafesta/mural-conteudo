@@ -1,0 +1,56 @@
+{
+ "data": "2026-11-24",
+ "tema": "Funcionalidade 1: recado em vídeo no telão (formato novo, telas reais do app)",
+ "posts": [
+  {
+   "id": "2026-11-24-story-1800",
+   "tipo": "story",
+   "titulo": "Story 1/4: A dinda que mora longe",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-24/story-1800.mp4"
+   ],
+   "horario": "2026-11-24T18:00:00-03:00"
+  },
+  {
+   "id": "2026-11-24-story-1805",
+   "tipo": "story",
+   "titulo": "Story 2/4: O recado em vídeo pelo app",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-24/story-1805.mp4"
+   ],
+   "horario": "2026-11-24T18:05:00-03:00"
+  },
+  {
+   "id": "2026-11-24-story-1810",
+   "tipo": "story",
+   "titulo": "Story 3/4: O telão parou tudo",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-24/story-1810.mp4"
+   ],
+   "horario": "2026-11-24T18:10:00-03:00"
+  },
+  {
+   "id": "2026-11-24-story-1815",
+   "tipo": "story",
+   "titulo": "Story 4/4: A reação às 18:30",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-24/story-1815.mp4"
+   ],
+   "horario": "2026-11-24T18:15:00-03:00"
+  },
+  {
+   "id": "2026-11-24-reels",
+   "tipo": "reel",
+   "titulo": "Reels: Recado em vídeo no telão",
+   "legenda": "A dinda da Lulu mora em Lisboa e não ia conseguir estar na festa. Então ela abriu o link do Mural da Festa no celular, gravou um recado em vídeo e enviou. Na hora das homenagens, o telão parou tudo e a festa inteira assistiu junto.\n\nRecado em vídeo direto no telão: o convidado grava pelo celular, sem baixar nenhum aplicativo. Quem está longe também chega.\n\nMande FESTA no direct.\n\nTelas reais do app. Cenas ilustrativas criadas com IA.\n#festainfantil #aniversarioinfantil #recadoemvideo #familia #muraldafesta",
+   "midia": [
+    "midia/2026-11-24/reels.mp4"
+   ],
+   "horario": "2026-11-24T18:30:00-03:00"
+  }
+ ]
+}
