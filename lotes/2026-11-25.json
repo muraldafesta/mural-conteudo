@@ -1,0 +1,56 @@
+{
+ "data": "2026-11-25",
+ "tema": "Funcionalidade: álbum de recordações com capa (telas reais)",
+ "posts": [
+  {
+   "id": "2026-11-25-story-1800",
+   "tipo": "story",
+   "titulo": "Story 1/4: Manhã seguinte",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-25/story-1800.mp4"
+   ],
+   "horario": "2026-11-25T18:00:00-03:00"
+  },
+  {
+   "id": "2026-11-25-story-1805",
+   "tipo": "story",
+   "titulo": "Story 2/4: O álbum pronto",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-25/story-1805.mp4"
+   ],
+   "horario": "2026-11-25T18:05:00-03:00"
+  },
+  {
+   "id": "2026-11-25-story-1810",
+   "tipo": "story",
+   "titulo": "Story 3/4: Fotos e recados",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-25/story-1810.mp4"
+   ],
+   "horario": "2026-11-25T18:10:00-03:00"
+  },
+  {
+   "id": "2026-11-25-story-1815",
+   "tipo": "story",
+   "titulo": "Story 4/4: O final às 18:30",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-25/story-1815.mp4"
+   ],
+   "horario": "2026-11-25T18:15:00-03:00"
+  },
+  {
+   "id": "2026-11-25-reels",
+   "tipo": "reel",
+   "titulo": "Reels: O álbum da festa",
+   "legenda": "Manhã seguinte à festa. A casa ainda bagunçada, e o álbum de recordações já estava pronto no celular: capa de arte, as fotos e os recados de cada convidado, assinados por quem estava lá. E a festa recomeçou, na cama, com a aniversariante apontando cada foto.\n\nNo Mural da Festa, o álbum fica pronto no fim da festa, para ver, baixar em PDF e compartilhar com a família.\n\nMande FESTA no direct.\n\nTelas reais do app. Cenas ilustrativas criadas com IA.\n#festainfantil #aniversarioinfantil #albumdefotos #recordacoes #muraldafesta",
+   "midia": [
+    "midia/2026-11-25/reels.mp4"
+   ],
+   "horario": "2026-11-25T18:30:00-03:00"
+  }
+ ]
+}
