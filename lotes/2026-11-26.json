@@ -1,0 +1,56 @@
+{
+ "data": "2026-11-26",
+ "tema": "Funcionalidade: presente por Pix com lista e cotas (telas reais)",
+ "posts": [
+  {
+   "id": "2026-11-26-story-1800",
+   "tipo": "story",
+   "titulo": "Story 1/4: A tia que mora longe",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-26/story-1800.mp4"
+   ],
+   "horario": "2026-11-26T18:00:00-03:00"
+  },
+  {
+   "id": "2026-11-26-story-1805",
+   "tipo": "story",
+   "titulo": "Story 2/4: A lista de presentes",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-26/story-1805.mp4"
+   ],
+   "horario": "2026-11-26T18:05:00-03:00"
+  },
+  {
+   "id": "2026-11-26-story-1810",
+   "tipo": "story",
+   "titulo": "Story 3/4: Cota no Pix",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-26/story-1810.mp4"
+   ],
+   "horario": "2026-11-26T18:10:00-03:00"
+  },
+  {
+   "id": "2026-11-26-story-1815",
+   "tipo": "story",
+   "titulo": "Story 4/4: O presente às 18:30",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-26/story-1815.mp4"
+   ],
+   "horario": "2026-11-26T18:15:00-03:00"
+  },
+  {
+   "id": "2026-11-26-reels",
+   "tipo": "reel",
+   "titulo": "Reels: Presente por Pix",
+   "legenda": "A tia mora longe e nunca sabe o que dar de presente. Na página da festa da Lulu, encontrou a lista: bicicleta, dia no parque, aulas de natação. Escolheu uma cota da bicicleta e pagou no Pix ali mesmo, com o valor já preenchido. No fim, 4 tios, 4 cotas, 1 bicicleta.\n\nNo Mural da Festa, a família monta a lista de presentes e experiências, com cotas, e o Pix vai direto para ela, sem taxa.\n\nMande FESTA no direct.\n\nTelas reais do app. Cenas ilustrativas criadas com IA.\n#festainfantil #aniversarioinfantil #listadepresentes #presente #muraldafesta",
+   "midia": [
+    "midia/2026-11-26/reels.mp4"
+   ],
+   "horario": "2026-11-26T18:30:00-03:00"
+  }
+ ]
+}
