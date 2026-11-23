@@ -1,0 +1,56 @@
+{
+ "data": "2026-11-28",
+ "tema": "Funcionalidade: anfitrião aprova antes do telão (telas reais)",
+ "posts": [
+  {
+   "id": "2026-11-28-story-1800",
+   "tipo": "story",
+   "titulo": "Story 1/4: A mãe no celular",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-28/story-1800.mp4"
+   ],
+   "horario": "2026-11-28T18:00:00-03:00"
+  },
+  {
+   "id": "2026-11-28-story-1805",
+   "tipo": "story",
+   "titulo": "Story 2/4: Tudo passa por ela",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-28/story-1805.mp4"
+   ],
+   "horario": "2026-11-28T18:05:00-03:00"
+  },
+  {
+   "id": "2026-11-28-story-1810",
+   "tipo": "story",
+   "titulo": "Story 3/4: O recado da vovó",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-28/story-1810.mp4"
+   ],
+   "horario": "2026-11-28T18:10:00-03:00"
+  },
+  {
+   "id": "2026-11-28-story-1815",
+   "tipo": "story",
+   "titulo": "Story 4/4: O final às 18:30",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-28/story-1815.mp4"
+   ],
+   "horario": "2026-11-28T18:15:00-03:00"
+  },
+  {
+   "id": "2026-11-28-reels",
+   "tipo": "reel",
+   "titulo": "Reels: O anfitrião aprova",
+   "legenda": "No meio da festa, a mãe não largava o celular. Cada foto e cada recado dos convidados chegava primeiro para ela, no painel do Mural da Festa. Quando apareceu o recado da vovó, ela aprovou na hora, e ele foi direto para o telão. A vovó se viu na TV e não segurou a emoção.\n\nNo Mural da Festa, o anfitrião aprova cada foto e recado antes de ir para o telão (ou libera tudo direto, se preferir). Nada aparece fora de hora.\n\nMande FESTA no direct.\n\nTelas reais do app. Cenas ilustrativas criadas com IA.\n#festainfantil #aniversarioinfantil #maedemenina #festaemcasa #muraldafesta",
+   "midia": [
+    "midia/2026-11-28/reels.mp4"
+   ],
+   "horario": "2026-11-28T18:30:00-03:00"
+  }
+ ]
+}
