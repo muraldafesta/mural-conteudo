@@ -1,0 +1,56 @@
+{
+ "data": "2026-11-30",
+ "tema": "Funcionalidade: modo Corporativo com a logo da empresa (telas reais)",
+ "posts": [
+  {
+   "id": "2026-11-30-story-1800",
+   "tipo": "story",
+   "titulo": "Story 1/4: A festa da empresa",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-30/story-1800.mp4"
+   ],
+   "horario": "2026-11-30T18:00:00-03:00"
+  },
+  {
+   "id": "2026-11-30-story-1805",
+   "tipo": "story",
+   "titulo": "Story 2/4: A logo no Mural",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-30/story-1805.mp4"
+   ],
+   "horario": "2026-11-30T18:05:00-03:00"
+  },
+  {
+   "id": "2026-11-30-story-1810",
+   "tipo": "story",
+   "titulo": "Story 3/4: O telão acendeu",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-30/story-1810.mp4"
+   ],
+   "horario": "2026-11-30T18:10:00-03:00"
+  },
+  {
+   "id": "2026-11-30-story-1815",
+   "tipo": "story",
+   "titulo": "Story 4/4: O final às 18:30",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-30/story-1815.mp4"
+   ],
+   "horario": "2026-11-30T18:15:00-03:00"
+  },
+  {
+   "id": "2026-11-30-reels",
+   "tipo": "reel",
+   "titulo": "Reels: Modo Corporativo com a logo da empresa",
+   "legenda": "A Marina passou semanas organizando a festa de fim de ano da empresa. Colocou a logo no Mural da Festa e, na noite da festa, o telão abriu com a marca e foi mostrando os recados da equipe. Quando apareceu o recado do Seu Antônio, 34 anos de casa, ele não segurou.\n\nNo modo Corporativo, a logo da sua empresa aparece na página dos participantes, no telão e no álbum, com um visual sóbrio e as cores da marca.\n\nMande FESTA no direct.\n\nTelas reais do app. Cenas ilustrativas criadas com IA.\n#confraternizacao #festadefimdeano #eventocorporativo #endomarketing #muraldafesta",
+   "midia": [
+    "midia/2026-11-30/reels.mp4"
+   ],
+   "horario": "2026-11-30T18:30:00-03:00"
+  }
+ ]
+}
