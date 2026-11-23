@@ -1,0 +1,56 @@
+{
+ "data": "2026-11-27",
+ "tema": "Funcionalidade: convites com QR e convidado titular (telas reais)",
+ "posts": [
+  {
+   "id": "2026-11-27-story-1800",
+   "tipo": "story",
+   "titulo": "Story 1/4: 4 convites para a madrinha",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-27/story-1800.mp4"
+   ],
+   "horario": "2026-11-27T18:00:00-03:00"
+  },
+  {
+   "id": "2026-11-27-story-1805",
+   "tipo": "story",
+   "titulo": "Story 2/4: Cadastrando a família",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-27/story-1805.mp4"
+   ],
+   "horario": "2026-11-27T18:05:00-03:00"
+  },
+  {
+   "id": "2026-11-27-story-1810",
+   "tipo": "story",
+   "titulo": "Story 3/4: O ingresso com QR",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-27/story-1810.mp4"
+   ],
+   "horario": "2026-11-27T18:10:00-03:00"
+  },
+  {
+   "id": "2026-11-27-story-1815",
+   "tipo": "story",
+   "titulo": "Story 4/4: A noite às 18:30",
+   "legenda": "",
+   "midia": [
+    "midia/2026-11-27/story-1815.mp4"
+   ],
+   "horario": "2026-11-27T18:15:00-03:00"
+  },
+  {
+   "id": "2026-11-27-reels",
+   "tipo": "reel",
+   "titulo": "Reels: Convites com QR Code",
+   "legenda": "A madrinha da Sofia ganhou 4 convites para os 15 anos. Pelo link do Mural da Festa, ela mesma cadastrou quem ia com ela, com nome e CPF, e cada um recebeu o próprio ingresso com QR Code. Na noite da festa, entrada rápida: o QR é lido na porta e a festa começa com um abraço.\n\nConvites com QR Code para 15 anos, formaturas e grandes eventos: o anfitrião define quantos convites cada titular tem, e a portaria confere na entrada. O CPF fica guardado cifrado.\n\nMande FESTA no direct.\n\nTelas reais do app. Cenas ilustrativas criadas com IA.\n#15anos #debutante #festade15anos #convitedigital #muraldafesta",
+   "midia": [
+    "midia/2026-11-27/reels.mp4"
+   ],
+   "horario": "2026-11-27T18:30:00-03:00"
+  }
+ ]
+}
